@@ -1,6 +1,7 @@
 //CONST
 const A_MAKE_TEXT = 'Zapisz swoje <br> dzieło :)';
 const LAST_TEXT = 'Gratulacje! <br>Ukończyłeś/łaś swój własny obraz typu "połącz kropki".';
+const NEW_IMG_NAME = 'connect-the-dots.png';
 const createCanvas2 = document.querySelector('.create-button')
 const createCanvas3 = document.querySelector('.create-button2')
 const canvas = document.querySelector('.canvas');
@@ -40,9 +41,7 @@ aMake.addEventListener('click', ()=> {
     document.getElementById('last-text').innerHTML= LAST_TEXT;
     $('.pencil-case').css('display', 'none');
     $('.finish-button').css('font-size', '2rem');
-    $('.finish-button').hover(() => {
-        $(this).css("background-color", "#50b350");
-    });
+    $('.finish-button').hover($(this).css("background-color", "#50b350"));
     $('.levels-text2').css('display', 'flex');
     $('.remake-button').css('display', 'flex');
     downloadPic();
@@ -69,7 +68,7 @@ window.addEventListener('load', ()=> {
     canvas.width = window.innerWidth*0.65;
     canvas.height = window.innerHeight*0.99;
 
-    //SHOWING INTRO
+    //INTRO
     if(sessionStorage.getItem('accepted') === 'yes') {
         $('.intro').css('display', 'none')
     };
@@ -78,12 +77,12 @@ window.addEventListener('load', ()=> {
     function start(e) {
         isDrawing = true;
         draw(e);
-    }
+    };
 
-    function stop () {
+    function stop() {
         isDrawing = false;
         ctx.beginPath();
-    }
+    };
 
     function draw(e) {
         if(!isDrawing) return;
@@ -95,7 +94,7 @@ window.addEventListener('load', ()=> {
         ctx.stroke();
         ctx.beginPath();
         ctx.moveTo(e.clientX, e.clientY);
-    }
+    };
 
 });
 
@@ -114,15 +113,16 @@ function createNewCanvas() {
 function clearCanvas2() {
     ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
     number = 0;
-}
+};
 
 function dotting(e){
-    number++;
     const intDotSize = parseInt(dotSize.value);
     const intFontSize = parseInt(fontSize.value);
+
+    number++;
     ctx2.beginPath();
-    ctx2.strokeStyle = 'black';
-    ctx2.fillStyle = 'black';
+    ctx2.strokeStyle = '#000000';
+    ctx2.fillStyle = '#000000';
     ctx2.arc(e.clientX, e.clientY, intDotSize, 0, 2 * Math.PI);
     ctx2.fill();
     ctx2.stroke(); 
@@ -141,17 +141,17 @@ function createNewCanvas3() {
 function clearCanvas3() {
     ctx3.clearRect(0, 0, canvas2.width, canvas2.height);
     number = 0;
-}
+};
 
 function start2(e) {
     isDrawing2 = true;
     draw2(e);
 };
 
-function stop2 () {
+function stop2() {
     isDrawing2 = false;
     ctx3.beginPath();
-}
+};
 
 function eraserTrigger(){
     if(!eraser) {
@@ -164,8 +164,8 @@ function eraserTrigger(){
         $('.eraser-box').css('background-color', 'rgba(255, 218, 9, 0)');
         $('.brush-box').css('background-color', 'rgba(255, 218, 9, 0.4)');
         return eraser = false;
-    }
-}
+    };
+};
 
 function draw2(e) {
     if(!isDrawing2) return;
@@ -182,7 +182,7 @@ function draw2(e) {
         const eraserSize = parseInt(eraserWeight.value)
         ctx3.clearRect(e.clientX-(eraserSize/2), e.clientY-(eraserSize/2), eraserSize, eraserSize);
     };
-}
+};
 
 function makeScreenshot() {
     html2canvas(document.querySelector("#screenshot")).then(canvas => {
@@ -190,13 +190,11 @@ function makeScreenshot() {
         canvas.id = 'canvasID';
         while (screenContainer.firstChild) { 
             screenContainer.removeChild(screenContainer.firstChild); }
-        screenContainer.appendChild(canvas)
+        screenContainer.appendChild(canvas);
     });
-}
+};
 
 function downloadPic() {
     aMake.href = document.getElementById('canvasID').toDataURL();
-    aMake.download = 'connect-the-dots.png';
-}
-
-
+    aMake.download = NEW_IMG_NAME;
+};

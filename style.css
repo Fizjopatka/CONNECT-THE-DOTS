@@ -21,7 +21,7 @@ body {
     background-color: rgba(255, 234, 245, 0.733);
 }
 
-button{
+button {
     font-family: 'Caveat Brush', cursive;
     font-size: 1.6rem;
     text-align: center;
@@ -65,8 +65,6 @@ img {
     height: 3rem;
     margin-right: 1rem;
 }
-
-/* LEVEL 1*/
 
 .level1 {
     position: absolute;
@@ -152,6 +150,7 @@ canvas {
     position: relative;
     transition: 0.4s;
 }
+
 .next-button span:after {
     content: '\00bb';
     position: absolute;
@@ -160,6 +159,7 @@ canvas {
     right: -20px;
     transition: 0.5s;
 }
+
 .next-button:hover span {
     padding-right: 25px;
 }
