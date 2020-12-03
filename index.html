@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Połącz kropki</title>
+        <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+            <div class="menu">
+                <div class="title"> Stwórz własny rysunek typu "połącz kropki"</div>
+                <div class="levels">
+                    <div class="level1">
+                        <div class="levels-text grow1 flex"> Narysuj szkic swojego rysunku. <br>Nie musisz przejmować się szczegółami.</div>
+                        <div class="pen-box grow1 flex">
+                            <img src="img/clean-code.png">
+                            <input type="range" class="stroke-weight" min="1" max="15" value="3">
+                        </div>
+                        <div class="levels-text grow1 flex"> Szkic nie wyszedł? Przycisk po prawej wyczyści płótno i można zacząć od nowa.
+
+                            <button class="clear-button"><img class="clear-img" src="img/clean.png"></button>
+                        </div>
+                        <div class="button-box grow1 flex">
+                            <div><a class="create-button next-button"><span>Gotowe, przejdź dalej</span></a></div>
+                        </div>
+                    </div>
+                    <div class="level2">
+                        <div class="levels-text grow1 flex"> Pora nanieść kropki na rysunek. Możesz eksperymentować z wielkością kropek i cyfr. W razie niepowodzenia wyczyścisz płótno przyciskiem po prawej stronie.
+                            <button class="clear-button2"><img class="clear-img" src="img/clean.png"></button>
+                        </div>
+                        
+                        <div class="dot-size grow1 flex">
+                            <img src="img/loading.png">
+                            <input type="range" class="dot-size-button" min="1" max="6" value="2">
+                        </div>
+                        <div class="font-size grow1 flex">
+                            <img src="img/font.png">
+                            <input type="range" class="font-size-button" min="13" max="24" value="15">
+                        </div>
+                        
+                        <div class="button-box grow1 flex">
+                            <div><a class="create-button2 next-button"><span>Gotowe, przejdź dalej</span></a></div>
+                        </div>
+                    </div>
+                    <div class="level3">
+                        <div id="last-text" class="levels-text grow1 flex"> Nadeszła pora na dodanie do projektu elementów i detali, które nie są obrysem postaci np. oczu, uśmiechu itp.</div>
+                        <div class="grow1 pencil-case">
+                            <div class="brush-box grow1 flex">
+                                <h2 class= "grow1 "> Pędzel</h2>
+                                <div class="thickness grow1">
+                                    <img src="img/clean-code.png"><input type="color" class="color-button">
+                                    <input type="range" class="stroke-weight2" min="1" max="15" value="3">
+                                </div>
+                            </div>
+                            <div class="eraser-box grow1 flex">
+                                <h2 class= "grow1 flex"> Gumka</h2>
+                                <div class="eraser grow1 flex">
+                                    <img src="img/eraser.png"><button id="eraser-button" class="eraser-button grow1 flex">WŁĄCZ</button>
+                                    <input type="range" class="eraser-weight" min="10" max="100" value="30">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="save flex grow1">
+                            <a id="a-make" class="finish-button">Gotowe! <br>Wyczyść szkic.</a>
+                        </div>
+                        <div class="levels-text2 grow1 flex">
+                            lub
+                        </div>
+                        <div class="flex grow1 remake">
+                            <a id="remake-button" class="remake-button" href="javascript:location.reload(true)"> Stwórz nowy obraz </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="screen-container">
+                <div id="screenshot" class="canvas-box">
+                    <canvas class="canvas"></canvas>
+                    <canvas class="canvas2"></canvas>
+                    <canvas class="canvas3"></canvas>
+                </div>
+            </div>
+            <div class="intro">
+                <div class="intro-slider">
+                    <h1> Narzędzie do tworzenia obrazu typu "połącz kropki"</h1><br>
+                    <div class="intro-img-container flex">
+                        <div>
+                            <h4>Etap 1</h4>
+                            <p> Narysuj szkic. Nie musisz przykładać uwagi do szczegółów. </p>
+                            <img class="intro-img" src="img/1.png">
+                        </div>
+                        <div>
+                            <h4>Etap 2</h4>
+                            <p>Nanieś kropki na obrys postaci. Ważne jest umieszczenie kropek na załamaniach linii.</p>
+                            <img class="intro-img" src="img/2.png">
+                        </div>
+                        <div>
+                            <h4>Etap 3</h4>
+                            <p>Narysuj linie znajdujące się wewnątrz postaci. Tutaj warto się postarać.</p>
+                            <img class="intro-img" src="img/3.png">
+                        </div>
+                        <div>
+                            <h4>Etap 4</h4>
+                            <p>Wyczyść linie pomocnicze narysowane podczas szkicu i ciesz się swoim dziełem.</p>
+                            <img class="intro-img" src="img/4.png">
+                        </div>
+                    </div>
+                    <div class="next-button intro-button">
+                        <div><a><span>Wszystko już wiem, mogę zaczynać</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="app.js"></script>
+    </body>
+</html>
