@@ -50,8 +50,6 @@ introButton.addEventListener('click', ()=>{
     sessionStorage.setItem('accepted', 'yes');
     $('.intro').css('display', 'none')
 });
-
-//FUNCTIONS
 window.addEventListener('load', ()=> {
     //CONST
     const clearButton = document.querySelector('.clear-button');
@@ -98,6 +96,7 @@ window.addEventListener('load', ()=> {
 
 });
 
+//FUNCTIONS
 function clearCanvas() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 };
