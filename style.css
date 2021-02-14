@@ -275,7 +275,6 @@ a {
     position: absolute ;
     background-color: rgb(241, 199, 199);
     min-width: 80%;
-    min-height: 80%;
     z-index: 99999999;
     left: 50%;
     top: 50%;
